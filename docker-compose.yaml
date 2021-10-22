@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    hostname: mysqldump-test
+    environment:
+      PBS_REPOSITORY:
+      PBS_PASSWORD:
+      PBS_FINGERPRINT:
+      MYSQL_USERNAME:
+      MYSQL_PASSWORD:
+      MYSQL_HOST:
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'testdb'
+      MYSQL_ROOT_PASSWORD: 'secret1234'
